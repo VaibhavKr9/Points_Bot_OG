@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+vers/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -163,3 +164,6 @@ cython_debug/
 
 #pickle file
 db
+
+#google-api key
+img/discord-bot-dipc.json

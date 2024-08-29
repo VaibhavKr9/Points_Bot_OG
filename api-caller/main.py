@@ -17,6 +17,7 @@ def getDB():
         dbfile = open('db', 'rb')
         db = pickle.load(dbfile)
         dbfile.close()
+        print("db found\n")
     return db
 
 def updateDB(db) :

@@ -253,5 +253,5 @@ def start_loop():
     return check_race_week.start()
 
 if __name__ == "__main__":
-    load_dotenv("../.env")
+    load_dotenv()
     c.run(secret.get("DISCORD_AUTH_KEY"))

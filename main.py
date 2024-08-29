@@ -108,7 +108,7 @@ async def on_ready():
         db["mentions"] = copy.deepcopy(m)
     
     updateDB(db)
-    print('ever. In init_test branch')
+    print('ever')
   
     """await channel.send(
         "👋 **Points Bottas 2.1** © is here! Your favourite Discord bot now comes with a special Countback™ Technology so that you don't cry when there's a tie. Also the symmary locking feature has been implemented. \n**These features have been released as beta and subject to change in the future in light of any malfunction so don't @ me.**\n\n "

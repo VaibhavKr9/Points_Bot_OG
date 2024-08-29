@@ -70,7 +70,7 @@ async def on_ready():
     db = getDB()
     print('What')
     #dipt updates channel
-    channel = c.get_channel(secret.get("GEN_CHANNEL"))
+    channel = c.get_channel(int(secret.get("GEN_CHANNEL")))
     print(str(secret.get("GEN_CHANNEL")) + str(type(channel)))
     #guild = c.get_guild(int(secret.get("guild")))
     guild = channel.guild

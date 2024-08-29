@@ -10,7 +10,7 @@ def run_script(script_name):
 def getArgs() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--branch", default="main")
-    parser.add_argument("-f","--files", default="main.py api-caller/main.py", nargs='*')
+    parser.add_argument("-f","--files", nargs='*', default=["main.py", "api-caller/main.py"])
     return parser.parse_args()
 
 if __name__ == "__main__":

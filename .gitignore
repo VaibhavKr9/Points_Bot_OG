@@ -164,6 +164,7 @@ cython_debug/
 
 #pickle file
 db
+api-caller/db
 
 #google-api key
 img/discord-bot-dipc.json

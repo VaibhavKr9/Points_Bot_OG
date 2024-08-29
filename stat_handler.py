@@ -51,7 +51,7 @@ class stat_dumper:
                                              }).execute()"""
       
         if "values" in self.extracted.keys():
-        	print(self.extracted["values"])
+            print(self.extracted["values"])
         if db["next_race_name"] not in self.extracted["values"][0]:
             values = [db["next_race_name"]]
             values.extend(db["q_result"])

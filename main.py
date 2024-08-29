@@ -95,7 +95,7 @@ async def on_ready():
         db["thanks"] = 0
 
     if "open" not in db.keys():
-      	db["open"] = True
+        db["open"] = True
 
     if "quali_open" not in db.keys():
         db["quali_open"] = True
@@ -362,9 +362,7 @@ async def on_member_join(member):
     await channel.send("Hiii 👋 " + db["mentions"][str(member)])
     updateDB(db)
 
-if __name__ == "__main__":
-    #keep_alive()
-    load_dotenv()            
+if __name__ == "__main__":          
     s.connect(secret.get("GOOGLE_AUTH_KEY"))
     try:
         c.run(secret.get("DISCORD_AUTH_KEY"))

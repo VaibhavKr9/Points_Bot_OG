@@ -363,6 +363,7 @@ async def on_member_join(member):
     updateDB(db)
 
 if __name__ == "__main__":          
+    load_dotenv()
     s.connect(secret.get("GOOGLE_AUTH_KEY"))
     try:
         c.run(secret.get("DISCORD_AUTH_KEY"))

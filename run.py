@@ -1,7 +1,6 @@
 import subprocess
 import argparse
 import threading
-from dotenv import load_dotenv
 
 
 def run_script(script_name):
@@ -16,7 +15,6 @@ def getArgs() -> argparse.Namespace:
 
 if __name__ == "__main__":
 
-    load_dotenv()
     args : argparse.Namespace = getArgs()
 
     subprocess.run(["git","fetch"])

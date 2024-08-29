@@ -4,6 +4,7 @@ import time
 from datetime import timedelta
 from datetime import datetime
 from discord.ext import tasks
+from dotenv import load_dotenv
 from os import path
 from os import environ as secret
 
@@ -252,4 +253,5 @@ def start_loop():
     return check_race_week.start()
 
 if __name__ == "__main__":
+    load_dotenv("../.env")
     c.run(secret.get("DISCORD_AUTH_KEY"))

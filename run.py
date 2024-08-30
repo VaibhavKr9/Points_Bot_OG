@@ -18,7 +18,7 @@ def getArgs() -> argparse.Namespace:
 if __name__ == "__main__":
 
     dotenvFile = dotenv.find_dotenv()
-    dotenv.set_key(dotenvFile, "PROJ_HOME", str(os.path.abspath(__file__)))
+    dotenv.set_key(dotenvFile, "PROJ_HOME", str(os.path.dirname(os.path.abspath(__file__))))
 
     args : argparse.Namespace = getArgs()
 

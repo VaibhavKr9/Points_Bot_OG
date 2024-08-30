@@ -17,15 +17,15 @@ from vers import russell as r
 
 def getDB():
     db = {}
-    if path.isfile('/home/container/db') and (path.getsize('/home/container/db') > 0):
-        dbfile = open('/home/container/db', 'rb')
+    if path.isfile(secret.get("PROJ_HOME") + '/db') and (path.getsize(secret.get("PROJ_HOME") + '/db') > 0):
+        dbfile = open(secret.get("PROJ_HOME") + '/db', 'rb')
         db = pickle.load(dbfile)
         dbfile.close()
         print("db found\n")
     return db
     
 def updateDB(db) :
-    dbfile = open('db','wb')
+    dbfile = open(secret.get("PROJ_HOME") + '/db', 'wb')
     pickle.dump(db, dbfile)
     dbfile.close()
 

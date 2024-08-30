@@ -1,18 +1,19 @@
 from os import path
+from os import environ
 import copy
 import random
 import pickle
 
 def getDB():
     db = {}
-    if path.isfile('/home/container/db'):
+    if path.isfile(environ.get("PROJ_HOME") + '/db'):
         dbfile = open('db', 'rb')
         db = pickle.load(dbfile)
         dbfile.close()
     return db
     
-def updateDB() :
-    dbfile = open('/home/container/db','wb')
+def updateDB(db) :
+    dbfile = open(environ.get("PROJ_HOME") + '/db','wb')
     pickle.dump(db, dbfile)
     dbfile.close()
 
@@ -118,9 +119,9 @@ def reset():
     db = getDB()
     p = db["points"]
     if "countback" in db.keys():
-    	c = db["countback"]
+        c = db["countback"]
     else:
-    	c = {}
+        c = {}
     for us in p.keys():
         p[us] = 0
         c[us] = [0,0,0]

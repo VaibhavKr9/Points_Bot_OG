@@ -13,15 +13,15 @@ import pickle
     
 def getDB():
     db = {}
-    if path.isfile('/home/container/api-caller/db'):
-        dbfile = open('db', 'rb')
+    if path.isfile(secret.get("PROJ_HOME") + '/api-caller/db'):
+        dbfile = open(secret.get("PROJ_HOME") + '/api-caller/db', 'rb')
         db = pickle.load(dbfile)
         dbfile.close()
         print("db found\n")
     return db
 
 def updateDB(db) :
-    dbfile = open('/home/container/api-caller/db','wb')
+    dbfile = open(secret.get("PROJ_HOME") + '/api-caller/db','wb')
     pickle.dump(db, dbfile)
     dbfile.close()
 

@@ -14,7 +14,7 @@ def getDB(dbPath):
     return db
 
 def updateDB(db) :
-    dbfile = open('/home/container/db','wb')
+    dbfile = open(environ.get("PROJ_HOME") + '/api-caller/db','wb')
     pickle.dump(db, dbfile)
     dbfile.close()
     

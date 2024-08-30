@@ -1,12 +1,13 @@
+from os import environ
 from os import path
 
 import pickle
 
     
-def getDB():
+def getDB(dbPath):
     db = {}
-    if path.isfile('/home/container/db'):
-        dbfile = open('db', 'rb')
+    if path.isfile(dbPath):
+        dbfile = open(dbPath, 'rb')
         db = pickle.load(dbfile)
         dbfile.close()
     return db
@@ -17,9 +18,10 @@ def updateDB(db) :
     dbfile.close()
     
 if __name__ == "__main__":
-    db = getDB()
+    #dbpath = path.join(path.dirname(__file__), "/db")
+    db = getDB(environ.get("PROJ_HOME") + "/api-caller/db")
     print(db)
-    db["round"]=16
+    """ db["round"]=16
     updateDB(db)
     db=getDB()
-    print(db)
+    print(db) """

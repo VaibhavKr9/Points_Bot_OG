@@ -1,6 +1,7 @@
 import subprocess
 import argparse
 import threading
+import os
 
 
 def run_script(script_name):
@@ -10,11 +11,13 @@ def run_script(script_name):
 def getArgs() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--branch", default="main")
-    parser.add_argument("-ng","no-git", action='store_false', dest="git_run")
+    parser.add_argument("-ng","--no-git", action='store_false', dest="git_run")
     parser.add_argument("-f","--files", nargs=2, default=["main.py", "api-caller/main.py"])
     return parser.parse_args()
 
 if __name__ == "__main__":
+
+    os.environ["PROJ_HOME"] = os.path.abspath(__file__)
 
     args : argparse.Namespace = getArgs()
 

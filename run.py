@@ -2,7 +2,7 @@ import subprocess
 import argparse
 import threading
 import os
-
+import dotenv
 
 def run_script(script_name):
     subprocess.run(["python", script_name])
@@ -17,7 +17,8 @@ def getArgs() -> argparse.Namespace:
 
 if __name__ == "__main__":
 
-    os.environ["PROJ_HOME"] = os.path.abspath(__file__)
+    dotenvFile = dotenv.find_dotenv()
+    dotenv.set_key(dotenvFile, "PROJ_HOME", str(os.path.abspath(__file__)))
 
     args : argparse.Namespace = getArgs()
 

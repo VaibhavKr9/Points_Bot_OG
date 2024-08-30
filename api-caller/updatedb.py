@@ -2,6 +2,7 @@ from os import environ
 from os import path
 
 import pickle
+from dotenv import load_dotenv
 
     
 def getDB(dbPath):
@@ -19,6 +20,7 @@ def updateDB(db) :
     
 if __name__ == "__main__":
     #dbpath = path.join(path.dirname(__file__), "/db")
+    load_dotenv()
     db = getDB(environ.get("PROJ_HOME") + "/api-caller/db")
     print(db)
     """ db["round"]=16

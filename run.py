@@ -10,6 +10,7 @@ def run_script(script_name):
 def getArgs() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("-b","--branch", default="main")
+    parser.add_argument("-ng","no-git", action='store_false', dest="git_run")
     parser.add_argument("-f","--files", nargs=2, default=["main.py", "api-caller/main.py"])
     return parser.parse_args()
 
@@ -17,8 +18,9 @@ if __name__ == "__main__":
 
     args : argparse.Namespace = getArgs()
 
-    subprocess.run(["git","fetch"])
-    subprocess.run(["git","checkout","-f","origin/" + args.branch])
+    if(args.git_run == True):
+        subprocess.run(["git","fetch"])
+        subprocess.run(["git","checkout","-f","origin/" + args.branch])
 
     """ script1_thread = threading.Thread(target=run_script, args=(args.files[0],))
     script2_thread = threading.Thread(target=run_script, args=(args.files[1],))

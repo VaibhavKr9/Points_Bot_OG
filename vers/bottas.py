@@ -1,26 +1,27 @@
 import copy
 from os import path
+from os import environ
 import pickle
 def getDB():
     db = {}
-    if path.isfile('/home/container/db') and (path.getsize('/home/container/db') > 0):
-        dbfile = open('/home/container/db', 'rb')
+    if path.isfile(environ.get("PROJ_HOME") + '/db') and (path.getsize(environ.get("PROJ_HOME") + '/db') > 0):
+        dbfile = open(environ.get("PROJ_HOME") + '/db', 'rb')
         db = pickle.load(dbfile)
         dbfile.close()
         print("db found\n")
     return db
     
 def updateDB(db) :
-    if (path.getsize('/home/container/db') > 0):
-        dbread = open('/home/container/db','rb')
+    if (path.getsize(environ.get("PROJ_HOME") + '/db') > 0):
+        dbread = open(environ.get("PROJ_HOME") + '/db','rb')
         dbr = pickle.load(dbread)
         print(dbr)
         dbread.close()
-        dbfile = open('/home/container/db','wb')
+        dbfile = open(environ.get("PROJ_HOME") + '/db','wb')
         pickle.dump(db, dbfile)
         dbfile.close()
         print("db updated\n")
-        dbread = open('/home/container/db','rb')
+        dbread = open(environ.get("PROJ_HOME") + '/db','rb')
         dbr = pickle.load(dbread)
         print(dbr)
         dbread.close()

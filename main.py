@@ -17,15 +17,15 @@ from vers import russell as r
 
 def getDB():
     db = {}
-    if path.isfile('/home/container/db') and (path.getsize('/home/container/db') > 0):
-        dbfile = open('/home/container/db', 'rb')
+    if path.isfile(secret.get("PROJ_HOME") + '/db') and (path.getsize(secret.get("PROJ_HOME") + '/db') > 0):
+        dbfile = open(secret.get("PROJ_HOME") + '/db', 'rb')
         db = pickle.load(dbfile)
         dbfile.close()
         print("db found\n")
     return db
     
 def updateDB(db) :
-    dbfile = open('db','wb')
+    dbfile = open(secret.get("PROJ_HOME") + '/db', 'wb')
     pickle.dump(db, dbfile)
     dbfile.close()
 
@@ -95,7 +95,7 @@ async def on_ready():
         db["thanks"] = 0
 
     if "open" not in db.keys():
-      	db["open"] = True
+        db["open"] = True
 
     if "quali_open" not in db.keys():
         db["quali_open"] = True
@@ -362,9 +362,8 @@ async def on_member_join(member):
     await channel.send("Hiii 👋 " + db["mentions"][str(member)])
     updateDB(db)
 
-if __name__ == "__main__":
-    #keep_alive()
-    load_dotenv()            
+if __name__ == "__main__":          
+    load_dotenv()
     s.connect(secret.get("GOOGLE_AUTH_KEY"))
     try:
         c.run(secret.get("DISCORD_AUTH_KEY"))

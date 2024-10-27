@@ -295,6 +295,10 @@ async def on_message(m):
                     break
             await m.channel.send(n.update_predictions(author, x, 'r'))
 
+    elif m.content.startswith('!summary'):
+        if str(m.author) == 'lastfaceog':
+            await m.channel.send('\nThe updated summary:\n' + r.sum())
+
     elif m.content.startswith('!help') or m.content.startswith('!commands'):
         await m.channel.send(com1)
 

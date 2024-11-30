@@ -69,9 +69,9 @@ class stat_dumper:
                 values.append(points[u])
 
             print(values)
-            appended = self.sheets.values().append(spreadsheetId=self.spreadsheetId,
+            '''appended = self.sheets.values().append(spreadsheetId=self.spreadsheetId,
                                                    range="Sheet2!A1:AZ10",
                                                    valueInputOption="USER_ENTERED",
                                                    body={"values":[values]
                                                    }).execute()
-            print(str(appended))
+            print(str(appended))'''

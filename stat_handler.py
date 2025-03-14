@@ -26,7 +26,7 @@ class stat_dumper:
     def __init__(self,
                  scopes=['https://www.googleapis.com/auth/spreadsheets']):
         self.scopes = scopes
-        self.range = "Sheet2!A1:O2"
+        self.range = "Sheet3!A1:O2"
 
     def connect(self, spreadsheetId):
         self.spreadsheetId = spreadsheetId

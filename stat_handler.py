@@ -26,7 +26,7 @@ class stat_dumper:
     def __init__(self,
                  scopes=['https://www.googleapis.com/auth/spreadsheets']):
         self.scopes = scopes
-        self.range = "Sheet2!A1:O2"
+        self.range = "Sheet3!A1:O2"
 
     def connect(self, spreadsheetId):
         self.spreadsheetId = spreadsheetId
@@ -43,13 +43,13 @@ class stat_dumper:
                                                    range=self.range,
                                                    majorDimension="COLUMNS"
                                                    ).execute()
-        """result = self.sheets.values().update(spreadsheetId=self.spreadsheetId,
+        result = self.sheets.values().update(spreadsheetId=self.spreadsheetId,
                                              range=self.range,
                                              valueInputOption="USER_ENTERED",
                                              body={
                                                  'values': [['1', '2'],
                                                             ['3', '4']]
-                                             }).execute()"""
+                                             }).execute()
       
         if "values" in self.extracted.keys():
             print(self.extracted["values"])
@@ -69,9 +69,9 @@ class stat_dumper:
                 values.append(points[u])
 
             print(values)
-            appended = self.sheets.values().append(spreadsheetId=self.spreadsheetId,
+            '''appended = self.sheets.values().append(spreadsheetId=self.spreadsheetId,
                                                    range="Sheet2!A1:AZ10",
                                                    valueInputOption="USER_ENTERED",
                                                    body={"values":[values]
                                                    }).execute()
-            print(str(appended))
+            print(str(appended))'''

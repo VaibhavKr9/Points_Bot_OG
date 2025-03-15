@@ -43,13 +43,13 @@ class stat_dumper:
                                                    range=self.range,
                                                    majorDimension="COLUMNS"
                                                    ).execute()
-        """result = self.sheets.values().update(spreadsheetId=self.spreadsheetId,
+        result = self.sheets.values().update(spreadsheetId=self.spreadsheetId,
                                              range=self.range,
                                              valueInputOption="USER_ENTERED",
                                              body={
                                                  'values': [['1', '2'],
                                                             ['3', '4']]
-                                             }).execute()"""
+                                             }).execute()
       
         if "values" in self.extracted.keys():
             print(self.extracted["values"])

@@ -146,11 +146,12 @@ def update_points(x, y):
                 po = po + 1
             if dr[us][pos] == x[pos] or dr[us][pos]+'👀' == x[pos]:
                 po = po + 1
-                cb[us][pos] = cb[us][pos] + 1  
-            if dq[us][pos] in y or dq[us][pos]+'👀' in y:
-                po = po + 1
-            if dq[us][pos] == y[pos] or dq[us][pos]+'👀' == y[pos]:
-                po = po + 1
+                cb[us][pos] = cb[us][pos] + 1
+            if us in dq.keys():
+                if dq[us][pos] in y or dq[us][pos]+'👀' in y:
+                    po = po + 1
+                if dq[us][pos] == y[pos] or dq[us][pos]+'👀' == y[pos]:
+                    po = po + 1
         wp[us][0] = po - p[us]
         p.update({us: po})
 

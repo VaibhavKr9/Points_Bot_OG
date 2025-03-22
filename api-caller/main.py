@@ -33,7 +33,7 @@ channel = []
 def get_round():
     db = getDB()
     if not db["over"]:
-        season = requests.get("http://api.jolpi.ca/ergast.com/api/f1/current.json").json()
+        season = requests.get("http://api.jolpi.ca/ergast/api/f1/current.json").json()
         for r in season["MRData"]["RaceTable"]["Races"]:
             d = r["date"].split("-")
             t = r["time"].split(":")
@@ -84,7 +84,7 @@ def get_round():
 
 def check_season():
     db = getDB()
-    season = requests.get("http://api.jolpi.ca/ergast.com/api/f1/current.json").json()
+    season = requests.get("http://api.jolpi.ca/ergast/api/f1/current.json").json()
     if season["MRData"]["RaceTable"]["season"] == datetime.now().strftime(
             "%Y"):
         db["over"] = False
@@ -188,7 +188,7 @@ async def race_result_update():
     db = getDB()
     print("3")
     if not db["over"]:
-        quali = requests.get("http://api.jolpi.ca/ergast.com/api/f1/current/" +
+        quali = requests.get("http://api.jolpi.ca/ergast/api/f1/current/" +
                              str(db["round"]) + "/results.json").json()
         if quali["MRData"]["RaceTable"]["Races"]:
             race_drivers = ["", "", ""]

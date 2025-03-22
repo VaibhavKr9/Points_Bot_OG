@@ -26,5 +26,5 @@ if __name__ == "__main__":
     print(db)
     """ db["round"]=16
     updateDB(db)
-    db=getDB()
+    db=getDB(environ.get("PROJ_HOME") + "/api-caller/db")
     print(db) """

@@ -211,6 +211,7 @@ async def race_result_update():
                        ("", "👀")[driver == "HUL"]) for driver in race_drivers))
             await channel[1].send(result)
             time.sleep(10)
+            db["round"] = db["round"] + 1
             updateDB(db)
             await channel[1].send(get_round())
 
